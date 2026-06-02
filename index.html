@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonia Jaime | Full-Stack Developer Portfolio | DAW</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portfolio profesional de Sonia Jaime, desarrolladora full-stack en potencia y estudiante de último año de DAW. Explora mis proyectos de desarrollo de aplicaciones web y lógica.">
+  <meta name="keywords" content="Sonia Jaime, DAW, Desarrollo de Aplicaciones Web, Frontend, Backend, Full Stack, Portfolio, Angular, FastAPI, PHP, SQL">
+  <meta name="author" content="Sonia Jaime">
+  
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- 1. HEADER & NAVIGATION (FLOATING CAPSULE) -->
+  <header>
+    <nav class="header-nav glass-card">
+      <a href="#hero" class="logo">
+        SJ<span>.</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero" class="active">Inicio</a></li>
+        <li><a href="#about">Sobre Mí</a></li>
+        <li><a href="#projects">Proyectos</a></li>
+        <li><a href="#skills">Habilidades</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- 2. HERO SECTION -->
+  <main>
+    <section id="hero">
+      <div class="grid-2" style="width: 100%;">
+        <!-- Columna Izquierda: Texto y Acciones -->
+        <div class="hero-content">
+          <!-- Badge de Disponibilidad (Sin Emoji Rocket) -->
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span>Disponible para Prácticas / Primer Empleo</span>
+          </div>
+          
+          <!-- Título Principal -->
+          <h1 class="hero-title">
+            Diseño la <span class="glow-txt">lógica</span>.<br>
+            Construyo la <span class="grad-txt">experiencia</span>.
+          </h1>
+          
+          <!-- Descripción -->
+          <p class="hero-desc" style="margin-bottom: 24px;">
+            Estudiante de <strong>Desarrollo de Aplicaciones Web (DAW)</strong>. Me interesa bastante la <strong>Ciberseguridad</strong> y disfruto creando soluciones seguras, eficientes y explorando nuevas tecnologías como la <strong>Inteligencia Artificial</strong>, que utilizo como una herramienta más para potenciar e innovar en mi código.
+          </p>
+          
+          <div class="glass-card quote-card" style="margin-bottom: 40px; padding: 20px 24px; border-left: 4px solid var(--color-mint); background: var(--color-bg-card);">
+            <p style="font-style: italic; color: var(--color-text-primary); margin: 0; font-size: 1.05rem;">
+              "Lo más importante no es solo el código, es tu <strong>creatividad</strong>. El verdadero alcance es hasta dónde llegue tu mente y lo que seas capaz de llevar a tierra."
+            </p>
+          </div>
+          
+          <!-- Llamadas a la Acción (CTAs) -->
+          <div class="hero-ctas">
+            <a href="#projects" class="btn-primary">
+              Explora mis proyectos
+              <i data-lucide="arrow-right"></i>
+            </a>
+            <a href="#contact" class="btn-secondary">
+              Hablemos
+              <i data-lucide="message-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Mockup Visual de Código (Sustancia Tech) -->
+        <div class="hero-visual">
+          <div class="glass-card code-window" style="text-align: left;">
+            <div class="code-header">
+              <div class="code-dots">
+                <span class="code-dot close"></span>
+                <span class="code-dot minimize"></span>
+                <span class="code-dot expand"></span>
+              </div>
+              <span class="code-file">security-kernel.py</span>
+            </div>
+            <div class="code-body">
+              <pre><code><span class="cd-keyword">from</span> fastapi <span class="cd-keyword">import</span> FastAPI, Security
+<span class="cd-keyword">from</span> pydantic <span class="cd-keyword">import</span> BaseModel
+
+app = FastAPI(title=<span class="cd-string">"SoniaProfileAPI"</span>)
+
+<span class="cd-keyword">class</span> <span class="cd-type">Developer</span>(BaseModel):
+    name: <span class="cd-string">"Sonia Jaime"</span>
+    role: <span class="cd-string">"Full-Stack Web Dev"</span>
+    focus: <span class="cd-string">"Cybersecurity & AI"</span>
+    status: <span class="cd-string">"Ready for action"</span>
+
+<span class="cd-decorator">@app.get</span>(<span class="cd-string">"/profile"</span>)
+<span class="cd-keyword">async def</span> <span class="cd-function">get_profile</span>(token: str = Security(verify_token)):
+    <span class="cd-keyword">return</span> Developer(
+        skills=[<span class="cd-string">"Angular"</span>, <span class="cd-string">"FastAPI"</span>, <span class="cd-string">"Docker"</span>],
+        access_granted=<span class="cd-boolean">True</span>
+    )</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SOBRE MÍ SECTION -->
+    <section id="about">
+      <div class="section-tag">
+        <i data-lucide="user"></i>
+        Sobre Mí
+      </div>
+      
+      <div class="grid-2">
+        <!-- Columna de Texto -->
+        <div class="about-text">
+          <h2 class="section-title">De la lógica conceptual al <span>código real</span>.</h2>
+          <p>
+            ¡Hola! Soy Sonia. Mi viaje en el mundo del desarrollo web comenzó en el Ciclo Formativo de Grado Superior de <strong>DAW</strong>, donde descubrí que programar no es solo escribir código, sino encontrar soluciones elegantes e innovadoras a problemas reales.
+          </p>
+          <p>
+            Tengo un enfoque fuerte en el desarrollo de arquitecturas limpias y me encanta experimentar tanto en el <strong>Frontend</strong> (creando interfaces fluidas y ultra-estéticas) como en el <strong>Backend</strong> (diseñando APIs rápidas y bases de datos robustas).
+          </p>
+          <p>
+            Mi objetivo actual es incorporarme a un equipo profesional donde pueda aportar mi energía, mis bases técnicas y seguir expandiendo mis conocimientos con tecnologías de vanguardia.
+          </p>
+        </div>
+        
+        <!-- Columna de Métricas de Cristal -->
+        <div class="about-visual">
+          <div class="about-stats">
+            <div class="glass-card stat-card">
+              <div class="stat-num">DAW</div>
+              <div class="stat-label">Último año completándose</div>
+            </div>
+            <div class="glass-card stat-card">
+              <div class="stat-num">+12</div>
+              <div class="stat-label">Proyectos y prácticas</div>
+            </div>
+            <div class="glass-card stat-card">
+              <div class="stat-num">100%</div>
+              <div class="stat-label">Pasión por la resolución lógica</div>
+            </div>
+            <div class="glass-card stat-card">
+              <div class="stat-num">Clean</div>
+              <div class="stat-label">Compromiso con el código limpio</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PROYECTOS -->
+    <section id="projects">
+      <div class="projects-header">
+        <div class="section-tag">
+          <i data-lucide="folder-git-2"></i>
+          Mis Proyectos
+        </div>
+        <h2 class="section-title">Proyectos <span>Destacados</span></h2>
+      </div>
+      
+      <div class="projects-grid">
+        
+        <!-- PROYECTO 1: TFG MindMatch (Tarjeta Destacada Completa) -->
+        <article class="glass-card project-card project-card-featured project-card-tfg-new">
+          <div class="project-grid-wrapper">
+            <!-- Columna Izquierda: Información del TFG -->
+            <div class="project-info-side">
+              <div class="project-meta">
+                <span class="project-tag">TFG - Trabajo Fin de Grado</span>
+                <div class="project-links">
+                  <a href="https://mindmatch-app.xyz" target="_blank" aria-label="Demo en Vivo"><i data-lucide="external-link"></i></a>
+                  <a href="https://mindmatch-app-tfg.onrender.com/docs" target="_blank" aria-label="Ver Documentación API"><i data-lucide="file-text"></i></a>
+                </div>
+              </div>
+              
+              <div class="project-info">
+                <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                  <img src="assets/images/logo.png" alt="MindMatch Logo" style="width: 48px; height: 48px; border-radius: 12px; object-fit: contain; background: rgba(255,255,255,0.1); padding: 4px;">
+                  <h3 style="margin-bottom: 0;">MindMatch</h3>
+                </div>
+                
+                <div class="project-media" style="margin-bottom: 24px; overflow: hidden; border-radius: 12px; border: 1px solid rgba(122,149,143,0.15); background: #0a0a0a;">
+                  <video src="assets/images/mindmatch.mp4" autoplay loop muted playsinline style="width: 100%; display: block; object-fit: contain; max-height: 400px;"></video>
+                </div>
+
+                <p>
+                  Plataforma web de terapia inteligente que revoluciona el emparejamiento entre pacientes y terapeutas utilizando <strong>algoritmos de perfilado psicológico</strong> como base científica y de autoconocimiento.
+                </p>
+                
+                <ul class="project-features-list">
+                  <li>
+                    <i data-lucide="brain"></i>
+                    <div>
+                      <strong>Algoritmo de Matching:</strong>
+                      <span>Test dinámico y asíncrono que calcula el perfil psicológico y los rasgos dominantes para conectar perfiles idóneos.</span>
+                    </div>
+                  </li>
+                  <li>
+                    <i data-lucide="zap"></i>
+                    <div>
+                      <strong>Arquitectura Desacoplada:</strong>
+                      <span>Frontend de alto rendimiento con <strong>Angular 18 (Signals)</strong> y API asíncrona robusta con <strong>FastAPI (Python)</strong>.</span>
+                    </div>
+                  </li>
+                  <li>
+                    <i data-lucide="shield"></i>
+                    <div>
+                      <strong>Grado de Producción:</strong>
+                      <span>Seguridad JWT, contenedorización Docker, control de versiones DB con Alembic y tests con Pytest.</span>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="project-tech" style="margin-top: 24px;">
+                  <span>#Angular18</span>
+                  <span>#FastAPI</span>
+                  <span>#Docker</span>
+                  <span>#Alembic</span>
+                  <span>#Pytest</span>
+                  <span>#MariaDB</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Columna Derecha: Simulador Interactivo de Matching -->
+            <div class="project-simulator-side">
+              <div class="simulator-card glass-card">
+                <div class="simulator-header">
+                  <div class="sim-dot"></div>
+                  <span>MindMatch Matching Engine (v1.0.2)</span>
+                </div>
+                
+                <!-- ESTADO 1: Seleccionar Temperamento -->
+                <div class="simulator-view" id="sim-view-select">
+                  <p class="sim-instruction">Prueba el algoritmo seleccionando tu temperamento principal:</p>
+                  
+                  <div class="sim-options">
+                    <button class="sim-option-btn" data-type="5">
+                      <div class="sim-option-icon"><i data-lucide="brain"></i></div>
+                      <div class="sim-option-text">
+                        <strong>Perfil Racional e Investigador</strong>
+                        <span>Observador, analítico, busca comprender cómo funciona el entorno.</span>
+                      </div>
+                    </button>
+                    
+                    <button class="sim-option-btn" data-type="9">
+                      <div class="sim-option-icon"><i data-lucide="heart"></i></div>
+                      <div class="sim-option-text">
+                        <strong>Perfil Pacífico y Mediador</strong>
+                        <span>Tranquilo, conciliador, evita conflictos y busca armonía interna.</span>
+                      </div>
+                    </button>
+                    
+                    <button class="sim-option-btn" data-type="2">
+                      <div class="sim-option-icon"><i data-lucide="users"></i></div>
+                      <div class="sim-option-text">
+                        <strong>Perfil Ayudador y Altruista</strong>
+                        <span>Empático, cariñoso, orientado a apoyar y conectar con los demás.</span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                
+                <!-- ESTADO 2: Cargando (Matching...) -->
+                <div class="simulator-view d-none" id="sim-view-loading">
+                  <div class="sim-loader-container">
+                    <div class="sim-spinner"></div>
+                    <p class="sim-loading-title">Procesando respuestas del test...</p>
+                    
+                    <div class="sim-loading-steps">
+                      <div class="sim-step" id="sim-step-1">
+                        <span class="step-bullet">•</span> <span>Calculando perfil psicológico y rasgos dominantes...</span>
+                      </div>
+                      <div class="sim-step" id="sim-step-2">
+                        <span class="step-bullet">•</span> <span>Consultando terapeutas compatibles en MariaDB...</span>
+                      </div>
+                      <div class="sim-step" id="sim-step-3">
+                        <span class="step-bullet">•</span> <span>Ejecutando algoritmo de emparejamiento con FastAPI...</span>
+                      </div>
+                    </div>
+                    
+                    <div class="sim-progress-bar">
+                      <div class="sim-progress-fill" id="sim-progress-fill"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- ESTADO 3: Resultados -->
+                <div class="simulator-view d-none" id="sim-view-results">
+                  <div class="sim-result-container">
+                    <div class="sim-success-badge">
+                      <i data-lucide="check-circle-2"></i> Match exitoso en 1.2s
+                    </div>
+                    
+                    <div class="matched-therapist-card glass-card">
+                      <div class="therapist-profile">
+                        <div class="therapist-avatar" id="therapist-avatar"></div>
+                        <div class="therapist-details">
+                          <h4 id="therapist-name">Dr. Alejandro Ramos</h4>
+                          <span class="therapist-role">Psicólogo Especialista</span>
+                          <div class="therapist-specialties" id="therapist-specialties">
+                            <span>#TCC</span>
+                            <span>#PerfilAnalitico</span>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="therapist-desc" id="therapist-desc">
+                        Especializado en personas de perfil analítico, ayudando a canalizar la sobrecarga intelectual y el aislamiento social mediante terapia estructurada.
+                      </p>
+                    </div>
+                    
+                    <div class="sim-result-footer">
+                      <a href="https://mindmatch-app.xyz" target="_blank" class="btn-primary-sm">
+                        Ver Demo Real
+                        <i data-lucide="arrow-up-right"></i>
+                      </a>
+                      <button class="btn-secondary-sm" id="btn-sim-reset">
+                        Probar de Nuevo
+                        <i data-lucide="rotate-ccw"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </article>
+        
+        <!-- PROYECTO 2: Digital Escape Room (React) -->
+        <article class="glass-card project-card project-card-featured">
+          <div class="project-meta">
+            <span class="project-tag">Lógica & Gamificación</span>
+            <div class="project-links">
+              <a href="#" aria-label="Github Repo"><i data-lucide="github"></i></a>
+              <a href="#" aria-label="Proyecto Demo"><i data-lucide="external-link"></i></a>
+            </div>
+          </div>
+          
+          <div class="project-media" style="margin-bottom: 20px; overflow: hidden; border-radius: 12px; border: 1px solid rgba(122,149,143,0.15); background: #0a0a0a;">
+            <video src="assets/images/escaperoom.mp4" autoplay loop muted playsinline style="width: 100%; display: block; object-fit: contain; max-height: 400px;"></video>
+          </div>
+          
+          <div class="project-info" style="margin-bottom: 24px;">
+            <h3>Digital Escape Room</h3>
+            <p>
+              Single Page Application (SPA) gamificada con 4 niveles progresivos de puzzles lógicos y algoritmia. Desarrollada para evaluar habilidades de programación de forma interactiva e inmersiva.
+            </p>
+            
+            <ul class="project-features-list" style="margin-top: 16px; margin-bottom: 24px;">
+              <li>
+                <i data-lucide="zap"></i>
+                <div>
+                  <strong>Experiencia Fluida:</strong>
+                  <span>Transiciones dinámicas y animaciones de interfaz implementadas con <strong>Framer Motion</strong>.</span>
+                </div>
+              </li>
+              <li>
+                <i data-lucide="clock"></i>
+                <div>
+                  <strong>Motor de Juego:</strong>
+                  <span>Gestión de estado global, temporizador asíncrono y sistema de vidas (GameEngine custom).</span>
+                </div>
+              </li>
+              <li>
+                <i data-lucide="code-2"></i>
+                <div>
+                  <strong>Arquitectura Moderna:</strong>
+                  <span>Construido de cero con <strong>React 19</strong>, <strong>TypeScript</strong> estricto y estilizado con <strong>Tailwind CSS v4</strong>.</span>
+                </div>
+              </li>
+            </ul>
+
+            <div class="project-tech">
+              <span class="skill-tag highlight-active" style="padding: 6px 10px; font-size: 0.75rem; box-shadow: none;">#React19</span>
+              <span class="skill-tag highlight-active" style="padding: 6px 10px; font-size: 0.75rem; box-shadow: none;">#TypeScript</span>
+              <span class="skill-tag highlight-active" style="padding: 6px 10px; font-size: 0.75rem; box-shadow: none;">#Tailwind4</span>
+              <span class="skill-tag highlight-active" style="padding: 6px 10px; font-size: 0.75rem; box-shadow: none;">#FramerMotion</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. SKILLS SECTION -->
+    <section id="skills">
+      <div class="section-tag">
+        <i data-lucide="cpu"></i>
+        Habilidades
+      </div>
+      
+      <h2 class="section-title">El arsenal de <span>tecnologías</span></h2>
+      <p style="color: var(--color-text-secondary); max-width: 600px; margin-bottom: 48px;">
+        Haz clic en cualquier tecnología para ver su aplicación o iluminar las tarjetas de proyectos del Laboratorio que hacen uso de ella de forma activa.
+      </p>
+      
+      <div class="skills-container">
+        <!-- Frontend -->
+        <div class="glass-card skills-category">
+          <h3 class="category-title">
+            <i data-lucide="layout"></i>
+            Desarrollo Frontend
+          </h3>
+          <div class="skills-grid">
+            <div class="skill-tag" data-tech="HTML5">
+              <i data-lucide="file-code"></i> HTML5
+            </div>
+            <div class="skill-tag" data-tech="CSSVariables">
+              <i data-lucide="palette"></i> CSS3 / Custom Variables
+            </div>
+            <div class="skill-tag" data-tech="JavaScript_ES6">
+              <i data-lucide="braces"></i> JavaScript (ES6)
+            </div>
+            <div class="skill-tag" data-tech="Angular18">
+              <i data-lucide="layers"></i> Angular 18
+            </div>
+            <div class="skill-tag" data-tech="TailwindCSS">
+              <i data-lucide="wind"></i> Tailwind CSS
+            </div>
+          </div>
+        </div>
+        
+        <!-- Backend -->
+        <div class="glass-card skills-category">
+          <h3 class="category-title">
+            <i data-lucide="server"></i>
+            Backend & Lógica
+          </h3>
+          <div class="skills-grid">
+            <div class="skill-tag" data-tech="FastAPI">
+              <i data-lucide="zap"></i> FastAPI (Python)
+            </div>
+            <div class="skill-tag" data-tech="PHP">
+              <i data-lucide="terminal"></i> PHP
+            </div>
+            <div class="skill-tag" data-tech="Gamificacion">
+              <i data-lucide="gamepad-2"></i> Estructuras Algorítmicas
+            </div>
+          </div>
+        </div>
+        
+        <!-- Bases de datos & Herramientas -->
+        <div class="glass-card skills-category">
+          <h3 class="category-title">
+            <i data-lucide="database"></i>
+            Datos, Infraestructura & Herramientas
+          </h3>
+          <div class="skills-grid">
+            <div class="skill-tag" data-tech="MySQL">
+              <i data-lucide="database"></i> MySQL
+            </div>
+            <div class="skill-tag" data-tech="Docker">
+              <i data-lucide="container"></i> Docker
+            </div>
+            <div class="skill-tag" data-tech="Git">
+              <i data-lucide="git-branch"></i> Git & GitHub Control
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CONTACTO SECTION -->
+    <section id="contact">
+      <div class="section-tag">
+        <i data-lucide="mail"></i>
+        Contacto
+      </div>
+      
+      <div class="contact-wrapper">
+        <div class="glass-card contact-form">
+          <h2 class="section-title" style="text-align: center; margin-bottom: 8px;">¿Hablamos?</h2>
+          <p style="text-align: center; color: var(--color-text-secondary); margin-bottom: 40px;">
+            Si crees que mi perfil encaja con tu equipo o tienes un proyecto en mente, me encantaría saludarte. ¡Escríbeme!
+          </p>
+          
+          <!-- Formulario interactivo -->
+          <form id="portfolio-contact-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" class="form-control" placeholder="Tu nombre o empresa" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="tu@correo.com" required>
+              </div>
+              <div class="form-group form-group-full">
+                <label for="message">Mensaje</label>
+                <textarea id="message" class="form-control" placeholder="Cuéntame sobre tu proyecto o puesto disponible..." required></textarea>
+              </div>
+            </div>
+            
+            <div class="form-submit-container">
+              <button type="submit" class="btn-primary" id="btn-submit">
+                Enviar Mensaje
+                <i data-lucide="send"></i>
+              </button>
+              
+              <!-- Enlaces Sociales en Línea -->
+              <div class="social-links">
+                <a href="https://linkedin.com" target="_blank" class="social-link-btn" aria-label="LinkedIn">
+                  <i data-lucide="linkedin"></i>
+                </a>
+                <a href="https://github.com" target="_blank" class="social-link-btn" aria-label="GitHub">
+                  <i data-lucide="github"></i>
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 7. FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-copy">
+        &copy; 2026 Sonia Jaime. Todos los derechos reservados.
+      </div>
+      <div class="footer-quote">
+        "La simplicidad es la máxima <span>sofisticación</span> técnica."
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lucide Icons & Javascript -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
+</body>
+</html>
