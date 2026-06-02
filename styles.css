@@ -424,6 +424,8 @@ section {
   font-weight: 600;
   padding: 16px 36px;
   border-radius: 30px;
+  border: none;
+  cursor: pointer;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   transition: var(--transition-smooth);
 }
@@ -1290,9 +1292,9 @@ textarea.form-control {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-bg-card);
-  border: var(--border-glass);
-  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
   transition: var(--transition-smooth);
 }
 
