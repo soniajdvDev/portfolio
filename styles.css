@@ -1332,7 +1332,9 @@ textarea.form-control {
 /* 13. FOOTER */
 footer {
   border-top: var(--border-glass);
-  background: rgba(243, 247, 246, 0.9);
+  background: var(--color-bg-card);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
   padding: 40px 24px;
   position: relative;
   z-index: 10;
