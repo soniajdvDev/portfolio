@@ -30,28 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Highlight activo mediante IntersectionObserver
-  const sections = document.querySelectorAll('section');
-  const observerOptions = {
-    root: null,
-    rootMargin: '-20% 0px -60% 0px', // Detectar la sección en el tercio central
-    threshold: 0
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active');
-          }
-        });
-      }
-    });
-  }, observerOptions);
-
-  sections.forEach(section => observer.observe(section));
+  // REMOVED: User requested the navigation bar to remain static and not highlight active sections on scroll.
 
   /* ==========================================================================
      3. INTERACTIVE TECH SKILLS HIGHLIGHTER
