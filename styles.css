@@ -1278,8 +1278,9 @@ textarea.form-control {
 
 .form-submit-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
   flex-wrap: wrap;
   gap: 24px;
 }
