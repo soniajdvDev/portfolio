@@ -17,10 +17,10 @@
   --color-teal-light: #5CC2B9; /* Light Teal */
   
   /* Backgrounds */
-  --color-bg-deep: #0D1C1B; /* Very Deep Teal (Not black, not white) */
-  --color-bg-card: rgba(19, 39, 37, 0.65); /* Translucent dark teal glass */
-  --color-bg-card-hover: rgba(26, 52, 49, 0.95);
-  --color-terminal-bg: #050B0A; /* Even darker for terminal */
+  --color-bg-deep: #2A3B37; /* Soft slate/sage, intermediate dark */
+  --color-bg-card: rgba(56, 78, 73, 0.65); /* Softer glass */
+  --color-bg-card-hover: rgba(69, 94, 88, 0.95);
+  --color-terminal-bg: #1E2B28; /* Soft dark terminal */
   
   /* Typography Colors */
   --color-text-primary: #FFFFFF; /* Pure white for max contrast */
