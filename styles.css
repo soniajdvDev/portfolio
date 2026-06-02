@@ -61,8 +61,10 @@ body {
   -webkit-font-smoothing: antialiased;
   position: relative;
   min-height: 100vh;
-  background-image: radial-gradient(rgba(122, 149, 143, 0.12) 1.5px, transparent 1.5px);
-  background-size: 32px 32px;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(51, 139, 133, 0.08), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(138, 159, 118, 0.08), transparent 40%);
+  background-attachment: fixed;
 }
 
 /* Scrollbar customization */
