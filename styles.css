@@ -115,7 +115,6 @@ a {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* 6. HEADER & NAV FLOATING PILL */
 .header-nav {
   position: fixed;
   top: 24px;
@@ -134,6 +133,11 @@ a {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+
+/* Prevent the navbar from jumping to the right when hovered due to .glass-card hover overriding transform */
+.header-nav:hover {
+  transform: translateX(-50%);
 }
 
 .logo {
