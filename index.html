@@ -442,10 +442,16 @@ app = FastAPI(title=<span class="cd-string">"SoniaProfileAPI"</span>)
         <article class="glass-card project-card project-card-featured">
           <div class="project-meta">
             <span class="project-tag">Juego Web & Full-Stack</span>
-            <div class="project-links" style="display: flex; gap: 12px; align-items: center;">
+            <div class="project-links" style="display: flex; gap: 16px; align-items: center;">
               <a href="#" target="_blank" class="btn-secondary-sm" aria-label="Ver Repositorio">
                 <i data-lucide="github"></i> Ver Código
               </a>
+              
+              <!-- QR Visible y sin enlaces falsos que abran pestañas nuevas -->
+              <div style="display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.05); padding: 4px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
+                <i data-lucide="qr-code" style="width: 16px; height: 16px; color: #ccc;"></i>
+                <img src="assets/images/qr.png" alt="QR al repositorio" style="width: 40px; height: 40px; border-radius: 4px; display: block; border: 1px solid rgba(255,255,255,0.8); transition: transform 0.3s; cursor: zoom-in;" onmouseover="this.style.transform='scale(2)'; this.style.zIndex='10'; this.style.position='relative';" onmouseout="this.style.transform='scale(1)'; this.style.zIndex='1';">
+              </div>
             </div>
           </div>
 
@@ -501,14 +507,6 @@ app = FastAPI(title=<span class="cd-string">"SoniaProfileAPI"</span>)
                 <span class="skill-tag highlight-active" style="padding: 6px 10px; font-size: 0.75rem; box-shadow: none;">#Alpine.js</span>
                 <span class="skill-tag highlight-active" style="padding: 6px 10px; font-size: 0.75rem; box-shadow: none;">#TailwindCSS</span>
                 <span class="skill-tag highlight-active" style="padding: 6px 10px; font-size: 0.75rem; box-shadow: none;">#Vite</span>
-              </div>
-
-              <!-- Código QR Estático -->
-              <div class="qr-static" style="flex-shrink: 0; text-align: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(229,9,20,0.3); padding: 8px; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 4px 15px rgba(229,9,20,0.2)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
-                <a href="#" target="_blank" aria-label="Ir al repositorio" style="display: block; text-decoration: none;">
-                  <img src="assets/images/qr.png" alt="QR al repositorio" style="width: 70px; height: 70px; display: block; border-radius: 4px; margin: 0 auto; border: 1px solid rgba(255,255,255,0.8);">
-                  <span style="font-size: 0.65rem; color: #fff; font-weight: 600; margin-top: 6px; display: block; text-transform: uppercase; letter-spacing: 0.5px;">Escanear</span>
-                </a>
               </div>
             </div>
           </div>
