@@ -441,9 +441,14 @@ app = FastAPI(title=<span class="cd-string">"SoniaProfileAPI"</span>)
         <!-- PROYECTO 3: Stranger Things Game -->
         <article class="glass-card project-card project-card-featured">
           <div class="project-meta">
-            <span class="project-tag">Lógica & UX</span>
-            <div class="project-links">
-              <a href="#" target="_blank" class="btn-secondary-sm" aria-label="Ver Repositorio"><i data-lucide="github"></i> Ver Código</a>
+            <span class="project-tag">Juego Web & Full-Stack</span>
+            <div class="project-links" style="display: flex; gap: 12px; align-items: center;">
+              <a href="#" target="_blank" class="btn-secondary-sm" aria-label="Ver Repositorio">
+                <i data-lucide="github"></i> Ver Código
+              </a>
+              <div class="qr-container" style="display: inline-block; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.9); padding: 4px; transition: transform 0.3s ease; position: relative;" onmouseover="this.style.transform='scale(1.8) translateY(10px) translateX(-10px)'; this.style.zIndex='10';" onmouseout="this.style.transform='scale(1) translateY(0) translateX(0)'; this.style.zIndex='1';">
+                 <img src="assets/images/qr.png" alt="QR al repositorio de GitHub" style="width: 36px; height: 36px; display: block; border-radius: 2px;">
+              </div>
             </div>
           </div>
 
@@ -452,58 +457,52 @@ app = FastAPI(title=<span class="cd-string">"SoniaProfileAPI"</span>)
             <video src="assets/images/strangerthings.mp4" autoplay loop muted playsinline
               style="width: 100%; display: block; object-fit: contain; max-height: 400px;"></video>
 
-            <!-- Contenedor del código QR flotante -->
-            <div style="position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.95); padding: 8px; border-radius: 8px; box-shadow: 0 4px 15px rgba(229,9,20,0.4); text-align: center; border: 2px solid rgba(229,9,20,0.5); backdrop-filter: blur(4px); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-               <!-- Se usa una API de QR como placeholder si no existe la imagen local -->
-               <a href="#" target="_blank" aria-label="Ir al repositorio" id="qr-link">
-                 <img src="assets/images/qr.png" alt="QR al repositorio de GitHub" style="width: 80px; height: 80px; display: block; border-radius: 4px;" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com'">
-               </a>
-               <span style="font-size: 0.65rem; color: #000; font-weight: 800; margin-top: 5px; display: block; font-family: sans-serif; text-transform: uppercase;">GitHub</span>
-            </div>
+
           </div>
 
           <div class="project-info" style="margin-bottom: 24px;">
             <h3>Stranger Things: The Hidden Message</h3>
             <p>
-              La mecánica es sencilla pero tensa: elige tu avatar y tienes solo 180 segundos para adivinar una frase oculta. Pero no estás solo; hemos integrado personajes que, según tu suerte, pueden darte un respiro sumando tiempo o complicarte la vida restándote segundos mientras la música te mantiene en tensión constante.
+              Juego de adivinar frases de películas basado en la estética de Stranger Things. Desarrollado de forma robusta utilizando <strong>PHP</strong> y el framework <strong>Laravel 12</strong>, combinando un frontend dinámico y reactivo con lógica asíncrona para controlar el tiempo, las puntuaciones y los eventos de los personajes.
             </p>
 
             <ul class="project-features-list" style="margin-top: 16px; margin-bottom: 24px;">
               <li>
-                <i data-lucide="keyboard"></i>
+                <i data-lucide="server"></i>
                 <div>
-                  <strong>Lógica del Abecedario:</strong>
-                  <span>Desarrollé el panel interactivo del abecedario que conecta con el backend para validar los aciertos en tiempo real.</span>
+                  <strong>Backend Robusto con Laravel:</strong>
+                  <span>Desarrollo de la API y lógica de negocio en PHP 8.2 utilizando Laravel 12, integrando el sistema de autenticación Laravel Breeze.</span>
+                </div>
+              </li>
+              <li>
+                <i data-lucide="zap"></i>
+                <div>
+                  <strong>Interactividad con Alpine.js:</strong>
+                  <span>Gestión del estado en el frontend, como el panel del abecedario, la ruleta y el temporizador, utilizando Alpine.js para una experiencia fluida.</span>
+                </div>
+              </li>
+              <li>
+                <i data-lucide="palette"></i>
+                <div>
+                  <strong>Estilizado Moderno:</strong>
+                  <span>Diseño y maquetación responsive estructurado íntegramente con <strong>Tailwind CSS</strong>, empaquetado y optimizado gracias a <strong>Vite</strong>.</span>
                 </div>
               </li>
               <li>
                 <i data-lucide="monitor-smartphone"></i>
                 <div>
-                  <strong>UX sin fricciones:</strong>
-                  <span>Ajuste de todos los elementos para una vista perfecta en una sola pantalla, eliminando la necesidad de hacer scroll.</span>
-                </div>
-              </li>
-              <li>
-                <i data-lucide="timer"></i>
-                <div>
-                  <strong>Gestión del "Game Over":</strong>
-                  <span>Programación del cierre de partida revelando automáticamente la solución y la película oculta cuando el tiempo se agota.</span>
-                </div>
-              </li>
-              <li>
-                <i data-lucide="git-merge"></i>
-                <div>
-                  <strong>Integración y GitHub:</strong>
-                  <span>Responsable de integrar todos los cambios finales, asegurando un repositorio limpio y funcional al 100%.</span>
+                  <strong>Gamificación y Experiencia (UX):</strong>
+                  <span>Todo ajustado en una sola pantalla. Eventos que suman o restan tiempo dinámicamente según la suerte, aumentando la tensión del jugador.</span>
                 </div>
               </li>
             </ul>
 
             <div class="project-tech">
-              <span class="skill-tag highlight-active" style="padding: 6px 10px; font-size: 0.75rem; box-shadow: none; border-color: rgba(229,9,20,0.5); color: #fff; background: rgba(229,9,20,0.1);">#JavaScript</span>
-              <span class="skill-tag highlight-active" style="padding: 6px 10px; font-size: 0.75rem; box-shadow: none;">#UX/UI</span>
-              <span class="skill-tag highlight-active" style="padding: 6px 10px; font-size: 0.75rem; box-shadow: none;">#LógicaDeJuego</span>
-              <span class="skill-tag highlight-active" style="padding: 6px 10px; font-size: 0.75rem; box-shadow: none;">#Git</span>
+              <span class="skill-tag highlight-active" style="padding: 6px 10px; font-size: 0.75rem; box-shadow: none; border-color: rgba(229,9,20,0.5); color: #fff; background: rgba(229,9,20,0.1);">#Laravel 12</span>
+              <span class="skill-tag highlight-active" style="padding: 6px 10px; font-size: 0.75rem; box-shadow: none;">#PHP 8.2</span>
+              <span class="skill-tag highlight-active" style="padding: 6px 10px; font-size: 0.75rem; box-shadow: none;">#Alpine.js</span>
+              <span class="skill-tag highlight-active" style="padding: 6px 10px; font-size: 0.75rem; box-shadow: none;">#TailwindCSS</span>
+              <span class="skill-tag highlight-active" style="padding: 6px 10px; font-size: 0.75rem; box-shadow: none;">#Vite</span>
             </div>
           </div>
         </article>
