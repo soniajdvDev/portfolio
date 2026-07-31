@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   skillTags.forEach(tag => {
     tag.addEventListener('click', () => {
       const tech = tag.getAttribute('data-tech');
-      
+
       // Toggle de estado visual de la etiqueta
       tag.classList.toggle('highlight-active');
       const isSelected = tag.classList.contains('highlight-active');
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
       projectCards.forEach(card => {
         const techTags = card.querySelectorAll('.project-tech span');
         let usesTech = false;
-        
+
         techTags.forEach(techSpan => {
           if (techSpan.textContent.toLowerCase().includes(tech.toLowerCase())) {
             usesTech = true;
@@ -120,21 +120,21 @@ document.addEventListener('DOMContentLoaded', () => {
     simOptionBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const type = btn.getAttribute('data-type');
-        
+
         // Ocultar vista inicial, mostrar pantalla de carga
         simViewSelect.classList.add('d-none');
         simViewLoading.classList.remove('d-none');
-        
+
         // Resetear barra de progreso y pasos
         simProgressFill.style.width = '0%';
         const step1 = document.getElementById('sim-step-1');
         const step2 = document.getElementById('sim-step-2');
         const step3 = document.getElementById('sim-step-3');
-        
+
         step1.className = 'sim-step active';
         step2.className = 'sim-step';
         step3.className = 'sim-step';
-        
+
         // Secuencia animada de matching (1.6 segundos en total)
         setTimeout(() => {
           simProgressFill.style.width = '33%';
@@ -159,11 +159,11 @@ document.addEventListener('DOMContentLoaded', () => {
           if (data) {
             document.getElementById('therapist-name').textContent = data.name;
             document.getElementById('therapist-desc').textContent = data.desc;
-            
+
             // Establecer avatar
             const avatar = document.getElementById('therapist-avatar');
             avatar.style.backgroundImage = `url('${data.avatarUrl}')`;
-            
+
             // Renderizar especialidades
             const specialtiesContainer = document.getElementById('therapist-specialties');
             specialtiesContainer.innerHTML = '';
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
               specialtiesContainer.appendChild(span);
             });
           }
-          
+
           // Mostrar vista de resultados
           simViewLoading.classList.add('d-none');
           simViewResults.classList.remove('d-none');
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      
+
       const submitBtn = document.getElementById('btn-submit');
       const originalBtnHTML = submitBtn.innerHTML;
 
@@ -206,17 +206,35 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.innerHTML = 'Enviando... <i data-lucide="loader" class="animate-spin"></i>';
       lucide.createIcons(); // Recargar iconos
 
-      // Simular petición AJAX de envío
-      setTimeout(() => {
-        // Reemplazar el formulario de cristal por una pantalla de éxito limpia
-        contactForm.innerHTML = `
+      // 1. Recogemos los datos que el usuario ha escrito en el formulario
+      const nameValue = document.getElementById('name').value;
+      const emailValue = document.getElementById('email').value;
+      const messageValue = document.getElementById('message').value;
+
+      // 2. Hacemos la petición REAL a tu API de FastAPI
+      fetch('http://127.0.0.1:8000/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        // Convertimos los datos al formato JSON que espera FastAPI (ContactForm)
+        body: JSON.stringify({
+          name: nameValue,
+          email: emailValue,
+          message: messageValue
+        })
+      })
+        .then(response => response.json())
+        .then(data => {
+          // 3. Si todo va bien, mostramos la pantalla de éxito que ya tenías
+          contactForm.innerHTML = `
           <div class="success-screen">
             <div class="success-icon">
               <i data-lucide="check"></i>
             </div>
             <h3 class="font-heading" style="font-size: 1.8rem; margin-bottom: 12px; color: var(--color-mint);">¡Mensaje Enviado con Éxito!</h3>
             <p style="color: var(--color-text-secondary); max-width: 500px; margin: 0 auto 24px auto;">
-              Muchas gracias por ponerte en contacto. He recibido tus datos correctamente. Responderé a tu correo lo antes posible para poder hablar en detalle. ¡Un saludo!
+              Muchas gracias por ponerte en contacto. El Backend ha procesado tu petición.
             </p>
             <button class="btn-secondary" onclick="window.location.reload();">
               Enviar otro mensaje
@@ -224,9 +242,16 @@ document.addEventListener('DOMContentLoaded', () => {
             </button>
           </div>
         `;
-        // Recargar iconos Lucide en el nuevo bloque de éxito
-        lucide.createIcons();
-      }, 1500);
+          lucide.createIcons();
+        })
+        .catch(error => {
+          // Por si acaso falla el backend, devolvemos el botón a la normalidad
+          console.error("Error conectando con la API:", error);
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHTML;
+          alert("Uy, parece que el servidor está apagado o hubo un error.");
+        });
+
     });
   }
 });
