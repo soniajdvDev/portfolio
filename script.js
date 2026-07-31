@@ -29,9 +29,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Highlight activo mediante IntersectionObserver
-  // REMOVED: User requested the navigation bar to remain static and not highlight active sections on scroll.
+  // Highlight activo mediante Scroll (Scroll Spy)
+  const sections = document.querySelectorAll('section');
+  const navItems = document.querySelectorAll('.nav-links a');
 
+  window.addEventListener('scroll', () => {
+    let current = '';
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (pageYOffset >= (sectionTop - 150)) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navItems.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href').substring(1) === current) {
+        a.classList.add('active');
+      }
+    });
+  });
   /* ==========================================================================
      3. INTERACTIVE TECH SKILLS HIGHLIGHTER
      ========================================================================== */
@@ -64,17 +83,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isSelected) {
           if (usesTech) {
+            card.style.display = 'block';
             card.style.borderColor = 'var(--color-mint)';
             card.style.boxShadow = '0 0 25px rgba(186, 224, 218, 0.2)';
-            // Removing transform interactions as requested
           } else {
-            card.style.opacity = '0.4';
+            card.style.display = 'none';
           }
         } else {
           // Resetear estilos
+          card.style.display = 'block';
           card.style.borderColor = '';
           card.style.boxShadow = '';
-          card.style.opacity = '1';
         }
       });
     });
