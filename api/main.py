@@ -1,9 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+import resend
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -33,29 +31,25 @@ class ContactForm(BaseModel):
     # Creamos el endpoint (la ruta) que recibirá la petición POST
 @app.post("/contact")
 async def send_contact_email(form_data: ContactForm):
+    # Configurar API Key de Resend
+    resend.api_key = os.getenv("RESEND_API_KEY")
     
+    # Tu correo donde quieres recibir los mensajes
     mi_correo = os.getenv("EMAIL_USER") 
-    mi_password = os.getenv("EMAIL_PASSWORD")
- 
-    
-    msg = MIMEMultipart()
-    msg['From'] = mi_correo
-    msg['To'] = mi_correo 
-    msg['Subject'] = f"🚀 Nuevo mensaje de Portfolio: {form_data.name}"
-
-    cuerpo = f"Nombre: {form_data.name}\nEmail: {form_data.email}\nMensaje:\n{form_data.message}"
-    msg.attach(MIMEText(cuerpo, 'plain'))
 
     try:
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.starttls()
-        server.login(mi_correo, mi_password)
-        server.send_message(msg)
-        server.quit()
-        print("Correo enviado con éxito")
+        # Usamos el dominio de prueba de Resend (onboarding@resend.dev)
+        # Esto nos permite enviar correos sin tener que verificar un dominio propio
+        r = resend.Emails.send({
+            "from": "Portfolio <onboarding@resend.dev>",
+            "to": mi_correo,
+            "subject": f"🚀 Nuevo mensaje de Portfolio: {form_data.name}",
+            "text": f"Nombre: {form_data.name}\nEmail: {form_data.email}\nMensaje:\n{form_data.message}"
+        })
+        print("Correo enviado con éxito a través de Resend")
         return {"status": "success", "message": "Email enviado con éxito"}
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error enviando correo con Resend: {e}")
         return {"status": "error", "message": "Falló el envío"}
 
     
