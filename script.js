@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const messageValue = document.getElementById('message').value;
 
       // 2. Hacemos la petición REAL a tu API de FastAPI
-      fetch('http://127.0.0.1:8000/contact', {
+      fetch('https://portfolio-api-soniajdv.onrender.com/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
