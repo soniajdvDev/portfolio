@@ -19,7 +19,7 @@ app = FastAPI(title="Portfolio Contact API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"], # En producción cambiaremos esto por la URL de tu web
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
